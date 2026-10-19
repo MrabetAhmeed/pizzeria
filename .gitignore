@@ -1,0 +1,19 @@
+# ---- v1 : gardée en local uniquement (la v2 est la page publiée) ----
+index-v1.html
+config/site.config.js
+assets/js/hero.js
+assets/frames/
+_backup-v1/
+
+# ---- notes de travail internes ----
+AUDIT-HERO.md
+
+# ---- système / éditeurs ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.tmp
+ssim_tmp.txt
+.vercel

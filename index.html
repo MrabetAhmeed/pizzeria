@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brace — Pizzeria napoletana à Grenoble</title>
+  <meta name="description" content="Pizza napolitaine au feu de bois à Grenoble. Pâte maturée 48 h, four à 485 °C, 90 secondes de cuisson.">
+  <meta property="og:title" content="Brace — Pizzeria napoletana à Grenoble">
+  <meta property="og:description" content="Pâte maturée 48 h, four à bois 485 °C, 90 secondes. Ouverture prochaine.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <meta name="theme-color" content="#0e0c0b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23f26a2e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/hero-poster.webp">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style-v2.css?v=1">
+</head>
+<body>
+  <header class="top" id="top">
+    <a class="logo" href="#hero" aria-label="Brace, retour en haut"><span class="logo-dot"></span><span class="logo-name">Brace</span></a>
+    <nav class="top-nav" aria-label="Navigation principale">
+      <a href="#carte">La carte</a>
+      <a href="#four">Le four</a>
+      <a href="#infos">Nous trouver</a>
+    </nav>
+    <a class="pill pill-fire" href="#commande">Commander <span class="basket-count" data-basket-count hidden>0</span></a>
+  </header>
+
+  <main>
+    <!-- 1 · Hero : la pizza se fait au scroll (et se défait en remontant) -->
+    <section class="hero" id="hero" aria-label="La pizza, étape par étape">
+      <div class="hero-stage">
+        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow" data-brand-tagline></p>
+          <h1 class="hero-word" aria-live="polite"><span data-hero-word>Pétrie.</span></h1>
+          <p class="hero-text" data-hero-text></p>
+          <div class="hero-cta" data-hero-cta>
+            <a class="pill pill-fire" href="#commande">Commander</a>
+            <a class="pill pill-ghost" href="#carte">Voir la carte</a>
+          </div>
+        </div>
+        <ol class="hero-steps" data-hero-steps aria-hidden="true"></ol>
+        <p class="hero-hint" data-hero-hint>Faites défiler <span aria-hidden="true">↓</span></p>
+        <a class="hero-skip" href="#carte">Passer <span aria-hidden="true">→</span> La carte</a>
+      </div>
+    </section>
+
+    <!-- 2 · La carte : un produit à la fois, fiche « verre » -->
+    <section class="menu" id="carte" aria-labelledby="carte-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">La carte</p>
+          <h2 id="carte-title">Neuf recettes. <em>Pas une de trop.</em></h2>
+        </div>
+        <div class="menu-shell">
+          <aside class="board" aria-label="Catégories">
+            <p class="board-title">Notre carte</p>
+            <ul data-board></ul>
+          </aside>
+          <div class="stage" data-stage tabindex="0" aria-roledescription="carrousel" aria-label="Pizzas de la carte">
+            <div class="stage-imgs" data-stage-imgs></div>
+            <div class="glass" data-glass>
+              <p class="glass-name" data-glass-name></p>
+              <p class="glass-desc" data-glass-desc></p>
+              <p class="glass-meta" data-glass-meta></p>
+            </div>
+            <div class="stage-foot">
+              <h3 class="stage-name" data-stage-name></h3>
+              <p class="stage-price" data-stage-price></p>
+            </div>
+            <div class="stage-nav">
+              <button class="round" data-prev aria-label="Pizza précédente">←</button>
+              <span class="stage-count" data-stage-count></span>
+              <button class="round" data-next aria-label="Pizza suivante">→</button>
+            </div>
+            <button class="pill pill-fire stage-add" data-add>Ajouter à ma commande</button>
+          </div>
+        </div>
+        <div class="thumbs" data-thumbs role="tablist" aria-label="Choisir une pizza"></div>
+      </div>
+    </section>
+
+    <!-- 3 · Le four : un grand chiffre par idée -->
+    <section class="craft" id="four" aria-labelledby="four-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Le four</p>
+          <h2 id="four-title">Trois chiffres, <em>une napolitaine.</em></h2>
+        </div>
+        <div class="craft-grid" data-craft></div>
+      </div>
+    </section>
+
+    <!-- 4 · Commande : le site répond -->
+    <section class="order" id="commande" aria-labelledby="commande-title">
+      <div class="wrap order-grid">
+        <div>
+          <p class="eyebrow">Commander</p>
+          <h2 id="commande-title">Composez, choisissez l'heure, <em>on confirme sur WhatsApp.</em></h2>
+          <p class="lead">Pas d'appli, pas de compte. Votre commande part en un message.</p>
+        </div>
+        <div class="order-card">
+          <div class="order-lines" data-order-lines></div>
+          <div class="chip-row" data-modes role="radiogroup" aria-label="Sur place ou à emporter"></div>
+          <div class="chip-row chip-row-scroll" data-slots role="radiogroup" aria-label="Heure"></div>
+          <p class="order-sentence" data-order-sentence></p>
+          <div class="order-actions">
+            <a class="pill pill-fire" data-order-wa target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+            <a class="pill pill-ghost" data-order-call>Appeler</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Assistant -->
+    <section class="ask" id="question" aria-labelledby="ask-title">
+      <div class="wrap ask-grid">
+        <div>
+          <p class="eyebrow">Une question ?</p>
+          <h2 id="ask-title">Demandez. <em>La carte répond.</em></h2>
+          <p class="lead">Sans gluten, végétarien, allergènes, réservation… Réponses tirées de notre carte.</p>
+        </div>
+        <div class="chat">
+          <div class="chat-log" data-chat-log aria-live="polite"></div>
+          <div class="chip-row" data-chat-chips></div>
+          <form class="chat-form" data-chat-form>
+            <input type="text" name="q" placeholder="Ex. : « une pizza sans viande ? »" autocomplete="off" aria-label="Votre question">
+            <button class="pill pill-fire" type="submit">Demander</button>
+          </form>
+          <p class="chat-note">Assistant de démonstration : il répond à partir de la carte et des infos publiées.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · Infos -->
+    <section class="visit" id="infos" aria-labelledby="infos-title">
+      <div class="wrap visit-grid">
+        <div>
+          <p class="eyebrow" data-opening></p>
+          <h2 id="infos-title">Bientôt, <em>à Grenoble.</em></h2>
+          <p class="lead" data-address></p>
+          <dl class="hours" data-hours></dl>
+          <div class="order-actions">
+            <a class="pill pill-ghost" data-insta target="_blank" rel="noopener"></a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe data-map title="Carte : Grenoble" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <a class="logo" href="#hero"><span class="logo-dot"></span><span class="logo-name">Brace</span></a>
+      <p data-brand-tagline></p>
+      <p class="foot-credit" data-credit></p>
+    </div>
+  </footer>
+
+  <script src="config/site.config.v2.js?v=1"></script>
+  <script src="assets/js/hero-v2.js?v=1"></script>
+  <script src="assets/js/app.js?v=4"></script>
+</body>
+</html>

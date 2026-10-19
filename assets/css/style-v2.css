@@ -1,0 +1,31 @@
+/* ==========================================================================
+   v2 — surcharges chargées après style.css (la v1 n'est pas touchée)
+   ========================================================================== */
+
+/* Bande translucide derrière le header, dès le hero : liens toujours lisibles sur la vidéo */
+.top {
+  background: rgba(14, 12, 11, 0.55);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid rgba(255, 238, 214, 0.08);
+}
+.top.is-solid { background: rgba(14, 12, 11, 0.82); }
+.top-nav a { color: rgba(243, 235, 221, 0.82); }
+.top-nav a:hover { color: var(--ink); }
+
+/* Lien « Passer » : toujours visible pendant le hero */
+.hero-skip {
+  position: absolute; right: var(--gutter); bottom: 26px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 16px;
+  border-radius: 999px; border: 1px solid var(--line); background: rgba(14, 12, 11, 0.5);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  font: 500 0.72rem/1 var(--f-mono); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none; transition: color 0.2s, border-color 0.2s;
+}
+.hero-skip:hover { color: var(--ink); border-color: rgba(255, 238, 214, 0.35); }
+.hero-hint { right: auto; left: 50%; transform: translateX(-50%); }
+
+@media (max-width: 760px) {
+  .hero-skip { bottom: 40px; height: 32px; padding: 0 12px; font-size: 0.66rem; }
+  .hero-steps { bottom: 16px; }
+}
